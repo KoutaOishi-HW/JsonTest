@@ -1,0 +1,27 @@
+using UnityEngine;
+using System;
+
+public class Test : MonoBehaviour
+{
+    [Serializable]
+    public class Category
+    {
+        public L[] コース;
+    }
+
+    [Serializable]
+    public class L
+    {
+        public int stage;
+        public int price;
+    }
+
+    string json = "{\"コース\": [{ \"stage\": 0, \"price\": 555},{ \"stage\": 1, \"price\": 30},{ \"stage\": 2, \"price\": 40}]}";
+
+    private void Start()
+    {
+        Category a = JsonUtility.FromJson<Category>(json);
+
+        Debug.Log(a.コース[2].price);
+    }
+}
